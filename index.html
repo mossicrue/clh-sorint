@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Sorint.lab Command Line Heroes!</title>
+        <link rel="stylesheet" href="assets/styles.css">
+    </head>
+    <body>
+        <canvas id="game-canvas"></canvas>
+        <img id="test-pattern" src="assets/clh-thumb.png">
+        <div id="game">
+            <div id="intro" v-bind:class="{ show: state == 'loading' }">
+                <img class="logo" src="./assets/clh-logo-white.svg">
+                <span>
+                    <span v-if="isMobile">Apologies, mobile is not yet supported, but <a href="https://github.com/CommandLineHeroes/clh-bash">PRs are welcome</a>! </span>
+                    <span v-else>DOWNLOADING</span>
+                    <span v-if="!isMobile" class="cursor">█</span>
+                </span>
+            </div>
+            <div v-bind:class="{ show: showTitle }" id="title-screen">
+                <img v-bind:class="{ show: showTitle }" id="clh-logo" src="./assets/clh-logo-white.svg">
+                <p v-bind:class="{ show: showTitle }" id="instructions">
+                    Test your command line skills.<br>
+                    You have {{parseInt(gameDuration/1000)}} seconds to type commands from:
+                </p>
+                <p v-bind:class="{ show: showTitle }" id="langs">
+                    BASH &middot; JAVASCRIPT &middot; PYTHON &middot; HTML5
+                </p>
+                <p v-bind:class="{ show: showTitle }" id="tagline">
+                    Set the terminal on fire.  Type PLAY to begin.
+                </p>
+                <p v-bind:class="{ show: showTitle }" id="listen">
+                    Listen to the podcast at <a target=_blank href="https://www.redhat.com/en/command-line-heroes">redhat.com/commandlineheroes</a>.<br><br>
+                    <a href="#credits" onclick="showCredits()">Credits</a> &middot; <a target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">GitHub</a>
+                </p>
+                <p v-bind:class="{ show: showTitle }" id="credits">
+                    Adapted with &#9829; by Simone Mossi, Marco Catania and Nicholas Tonsi<!--<a href="https://clayto.com">Michael Clayton</a>, <a href="http://jaredsprague.com/">Jared Sprague</a>, and the <a href="https://www.redhat.com/en/command-line-heroes/">Command Line Heroes</a> team and community.<br><br>-->
+                    Soundtrack: <a href="https://waveshaper1.bandcamp.com/track/66-mhz">"66 MHZ"</a> by <a href="https://waveshaper1.bandcamp.com/">Waveshaper</a>.<br><br>
+
+
+
+
+                    <a href="#instructions" onclick="showInstructions()">Back</a>
+                </p>
+            </div>
+            <textarea
+                v-model="cmd"
+                v-on:keydown="handleKeypress"
+                v-on:keyup="handleKeyup"
+                v-on:paste="handlePaste"
+                ref="cmd"
+                spellcheck=false
+                type="text"
+                name="cmd"
+                id="cmd"></textarea>
+        </div>
+        <script src="node_modules/howler/dist/howler.min.js"></script>
+        <script src="node_modules/ismobilejs/dist/isMobile.min.js"></script>
+        <script src="node_modules/three/build/three.min.js"></script>
+        <script src="node_modules/three/examples/js/libs/stats.min.js"></script>
+        <script src="node_modules/vue/dist/vue.min.js"></script>
+        <script src="node_modules/lodash/lodash.min.js"></script>
+        <script src="node_modules/@tweenjs/tween.js/src/Tween.js"></script>
+        <script type="module" src="src/main.js"></script>
+    </body>
+</html>

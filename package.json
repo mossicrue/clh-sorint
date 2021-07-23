@@ -1,0 +1,31 @@
+{
+    "name": "clh-bash",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node start.js",
+        "extract": "gunzip -k assets/models/*.gz",
+        "compress": "gzip -fk assets/models/*.{mtl,obj}",
+        "prettier": "node ./node_modules/.bin/prettier --write src/*.js assets/cmds/*.js",
+        "unzip": "node src/unzip.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.26.14",
+        "compression": "^1.7.3",
+        "prettier": "^1.17.0"
+    },
+    "dependencies": {
+        "@tweenjs/tween.js": "^17.2.0",
+        "howler": "^2.1.1",
+        "ismobilejs": "^0.5.1",
+        "lodash": "^4.17.11",
+        "three": "^0.126.1",
+        "vue": "^2.5.22",
+        "vue-autofocus-directive": "0.0.5"
+    }
+}
