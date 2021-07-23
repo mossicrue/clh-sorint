@@ -1,30 +1,29 @@
-# clh-bash
+# Command Line Heroes
 
-![screenshot from 2019-02-06 09-54-54](https://user-images.githubusercontent.com/3926730/52349830-53226480-29f5-11e9-82a9-783a04808e55.png)
+Unofficial fork of the [Command Line Heroes](https://github.com/CommandLineHeroes/clh-bash) game repository.
+This game will be used during Sorint.lab Download Festival 2021 for the "Fun" part.
 
-## Development
+## Docker Image
 
-Install dependencies.
+The Game is been containerized for a simply deploy in a docker or kubernetes environment.
+The image is based on the official node:16.5.0 image.
 
-    npm install
+To run the game locally in a container engine like docker
 
-Extract the compressed MTL and OBJ files.
+    docker pull docker.io/mossicrue/clh-sorint:stable
+    docker run -d mossicrue/clh-sorint:stable -p 3000:3000 -p 3001:3001
 
-    npm run extract
-    
+To run the game in an orchestrated environment like kubernetes or openshift
 
+    kubectl apply -f clh-install.yaml
 
-Extract the compressed MTL and OBJ files for Windows OS.
+The all-in-one manifest will create:
+- namespace
+- deployment
+- service
+- loadbalancer
+- route
 
-    npm run unzip
-
-Start the dev server.
-
-    npm start
-
-If you need to make changes to MTL/OBJ files and want to preserve them, run this to compress them.  Only gzipped MTL/OBJ files are saved in the repo.
-
-    npm run compress
 
 ## Leaderboard selection
 
@@ -41,21 +40,3 @@ Finally, when you launch Bash, add `&storage=parse` to the end.
 Both `localStorage` and Parse leaderboard support namespacing.  In other words, you can give the leaderboard a name.  This is especially useful if you need to maintain multiple leaderboards, for tournament rounds, timed events at conferences, etc.  Switching between leaderboards is as easy as changing the namespace.
 
 Then, when you launch Bash, add `&name=NAMESPACE` to the end of Bash's URL.  Note that you can change the word `NAMESPACE` to be anything you want.
-
-
-### How to get Help
-
-1. Post a question in the repo [issues](https://github.com/CommandLineHeroes/clh-bash/issues)
-2. Ask a question in real-time in our [public Discord server](https://discord.gg/rpnmpVj)
-3. Send a tweet to one of the twitter links below [social](#social)
-
-## Community
-
-Join our [public Discord server](https://discord.gg/rpnmpVj)!
-
-## Social
-
- - Jared Sprague [@caramelcode](https://twitter.com/caramelcode)
- - Michael Clayton [@mwcz](https://twitter.com/mwcz)
- - [Command Line Heroes](https://www.redhat.com/en/command-line-heroes)
- - [#CommandLinePod](https://twitter.com/hashtag/CommandLinePod?src=hash)
