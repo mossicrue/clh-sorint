@@ -1,6 +1,6 @@
 # Command Line Heroes
 
-Unofficial fork of the [Command Line Heroes](https://github.com/CommandLineHeroes/clh-bash) game repository.
+Unofficial fork of the [Command Line Heroes](https://github.com/CommandLineHeroes/clh-bash) game repository.  
 This game will be used during Sorint.lab Download Festival 2021 for the "Fun" part.
 
 ## Docker Image
@@ -11,7 +11,7 @@ The image is based on the official node:16.5.0 image.
 To run the game locally in a container engine like docker
 
     docker pull docker.io/mossicrue/clh-sorint:stable
-    docker run -d mossicrue/clh-sorint:stable -p 3000:3000 -p 3001:3001
+    docker run -d  -p 3000:3000 -p 3001:3001 mossicrue/clh-sorint:stable
 
 To run the game in an orchestrated environment like kubernetes or openshift
 

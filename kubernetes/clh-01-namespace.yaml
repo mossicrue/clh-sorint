@@ -1,0 +1,5 @@
+apiversion: v1
+kind: Namespace
+metadata:
+  name: clh-game
+spec:

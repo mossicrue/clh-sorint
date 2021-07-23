@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: clh-game
+  name: clh-game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clh-game
+  template:
+    metadata:
+      labels:
+        app: clh-game
+    spec:
+      containers:
+      - image: docker.io/mossicrue/clh-game:current
+        name: clh-game
+        resources:
