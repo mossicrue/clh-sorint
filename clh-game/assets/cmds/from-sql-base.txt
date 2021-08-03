@@ -1,4 +1,6 @@
-"ADD
+Probably would became the common commands
+
+"ADD",
 "ALTER",
 "ALL",
 "AND",
@@ -53,7 +55,6 @@
 "SET",
 "TABLE",
 "TRUNCATE",
-"UNION",
 "UNION",
 "UNIQUE",
 "UPDATE",

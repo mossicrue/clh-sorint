@@ -4,13 +4,15 @@ import bashCmds from "../assets/cmds/bash.js";
 import jsCmds from "../assets/cmds/js.js";
 import pyCmds from "../assets/cmds/python.js";
 import htmlCmds from "../assets/cmds/html.js";
+// Add other languages section
 import sqlCmds from "../assets/cmds/sql.js"
 
 const allCmds = _.union(
     bash().cmds,
     js().cmds,
     py().cmds,
-    html().cmds, /* and other langs as needed */
+    html().cmds,
+    // Add other languages section
     sql().cmds
 );
 
@@ -19,6 +21,7 @@ export const cmdsByLang = {
     js: js(),
     py: py(),
     html: html(),
+    // Add other languages section
     sql: sql()
 };
 
@@ -42,6 +45,7 @@ export function html() {
     return htmlCmds;
 }
 
+// Add other languages section
 export function sql() {
     return sqlCmds;
 }

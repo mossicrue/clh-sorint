@@ -216,6 +216,9 @@ const app = new Vue({
             let pyCommon = cmds.cmdsByLang.py.commonCmds;
             let htmlAll = filterCmds(cmds.cmdsByLang.html.cmds);
             let htmlCommon = filterCmds(cmds.cmdsByLang.html.commonCmds);
+            // Add other languages section
+            let sqlAll = filterCmds(cmds.cmdsByLang.sql.cmds);
+            let sqlCommon = cmds.cmdsByLang.sql.commonCmds;
 
             let cn = config.GOLDEN_CMDS_COMMON_PER_LANG;
             let rn = config.GOLDEN_CMDS_RANDOM_PER_LANG;
@@ -232,6 +235,9 @@ const app = new Vue({
                 ),
                 html: _.sampleSize(htmlCommon, cn).concat(
                     _.sampleSize(_.xor(htmlCommon, htmlAll), rn)
+                )
+                sql: _.sampleSize(sqlCommon, cn).concat(
+                    _.sampleSize(_.xor(sqlCommon, sqlAll), rn)
                 )
             };
             goldenCommands.all = goldenCommands.bash.concat(

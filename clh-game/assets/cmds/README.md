@@ -30,4 +30,14 @@ A few types of JS code are accepted.
 
 ## SQL
 
+See files from-sql-base.txt and from-postgres-doc.txt
+
 ## Powershell
+
+
+## Add a new language
+
+Find the "add here for new language" in the following files:
+
+- src/cmnds.js
+- src/app.js
