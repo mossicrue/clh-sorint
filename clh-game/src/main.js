@@ -170,7 +170,8 @@ of the following:
 - bash shell commands & linux built-ins
 - JavaScript keywords, objects, functions
 - Python keywords, objects, functions
-- HTML5 tags
+- SQL keywords, object, functions
+- HTML5 tags and Ansible module
 
 Press Enter to continue.`;
 
@@ -380,6 +381,8 @@ Press Enter to continue.`;
             app.cmd += `PYTHON      ${app.count.py}\n`;
             app.cmd += `JAVASCRIPT  ${app.count.js}\n`;
             app.cmd += `HTML5       ${app.count.html}\n`;
+            // Add other languages section
+            app.cmd += `SQL         ${app.count.sql}\n`;
 
             app.cmd += `\nPress Enter to continue.`;
 
@@ -760,7 +763,9 @@ function deriveTribe() {
         { tribe: "bash", count: app.count.bash },
         { tribe: "Python", count: app.count.py },
         { tribe: "JavaScript", count: app.count.js },
-        { tribe: "HTML", count: app.count.html }
+        { tribe: "HTML", count: app.count.html },
+        // Add other languages section
+        { tribe: "SQL", count: app.count.sql }
     ];
 
     const tribesSorted = _.reverse(_.sortBy(cmdCounts, "count"));

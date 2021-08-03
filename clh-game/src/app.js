@@ -235,15 +235,19 @@ const app = new Vue({
                 ),
                 html: _.sampleSize(htmlCommon, cn).concat(
                     _.sampleSize(_.xor(htmlCommon, htmlAll), rn)
-                )
+                ),
+                // Add other languages section
                 sql: _.sampleSize(sqlCommon, cn).concat(
                     _.sampleSize(_.xor(sqlCommon, sqlAll), rn)
                 )
             };
+
+            // Add other languages section
             goldenCommands.all = goldenCommands.bash.concat(
                 goldenCommands.js,
                 goldenCommands.py,
-                goldenCommands.html
+                goldenCommands.html,
+                goldenCommands.sql
             );
 
             return goldenCommands;
@@ -289,6 +293,24 @@ const app = new Vue({
             )
                 .map(cs => cs.join(""))
                 .join("");
+
+            // Add other languages section
+            // interleave commands of fifth and sixth langs (sql and microsoft)
+            out += _.zip(
+                goldCmds.sql.map(c => ` - ${c}`.padEnd(halfScreen)),
+                goldCmds.sql.map(c => ` - ${c}`.padEnd(halfScreen))
+                // Delete previous line and uncomment next line to add microsoft
+                // goldCmds.mcs.map(c => ` - ${c}`.padEnd(halfScreen))
+            )
+
+            // interleave commands of seventh and eighth langs (cisco and ansible modules)
+            // Delete this comment to add Cisco and ansible languages in gold
+            /*
+            out += _.zip(
+                goldCmds.cisco.map(c => ` - ${c}`.padEnd(halfScreen)),
+                goldCmds.ansible.map(c => ` - ${c}`.padEnd(halfScreen))
+            )
+            */
 
             return out;
         },

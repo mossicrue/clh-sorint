@@ -1,43 +1,71 @@
-# Building a shell command database
+# Available Languages and how to add a new language
 
-We pull from several sources to populate the command database.
+In this version of the game there are 2 type of languages:
 
-_Note: all commands to be run from this directory, `assets/commands/`._
+- Original: already present in the original RedHat game
+  - bash
+  - html
+  - javascript
+  - python
 
-## From \$PATH (Fedora)
+- Customized: added by me searching online and asking colleagues
+  - sql
+  - ansible
+  - microsoft / powershell
+  - cisco
 
-Get all executables from the \$PATH and all built-in bash functions.
+## Original Languages
 
-    compgen -bc > from-path-fedora.txt
-
-Get all DNF packages (this does not get executable names).
-
-    dnf list all
-
-## JavaScript
-
-A few types of JS code are accepted.
-
-- all [keywords](https://tc39.github.io/ecma262/#sec-keywords)
-- some [literals](https://tc39.github.io/ecma262/#sec-ecmascript-language-lexical-grammar-literals)
-  - literals to include: `null`, `true`, `false`
-- all [properties of the global object](https://tc39.github.io/ecma262/#sec-global-object)
-- all objects listed in [chapters 19-26](https://tc39.github.io/ecma262/#sec-fundamental-objects)
-  - for example, the subchapters of chapter 19 are "Object Objects", "Function Objects", "Boolean Objects", "Symbol Objects", and "Error Objects", so `object`, `function`, `boolean`, `symbol`, and `error` should be used.
-- additional [built-in properties of the global object](https://tc39.github.io/ecma262/#sec-additional-properties-of-the-global-object)
-- `async` should be added. it won't appear in the above lists because it is not a proper keyword (it's only a keyword in certain contexts but can still be used as a variable name, etc).
-- `window`, `document`, `navigator` I can't find in any spec but should be included
+For the original languages I prefer to left the original database intact.
+From the origianl README:
+- bash / shell uses Fedora and Ubuntu binaries found path.
+- javascript and html are taken by some w3 and w3school guides.
+- python seems to be added from the same type of javascript
 
 ## SQL
 
 See files from-sql-base.txt and from-postgres-doc.txt
 
+## Ansible
+
 ## Powershell
 
+## Microsoft / Powershell
+
+## Cisco
 
 ## Add a new language
 
-Find the "add here for new language" in the following files:
+Note: all commands to be run from this directory, `assets/cmds/`.
 
-- src/cmnds.js
+1. Create the <language>.js file that will contains the new languages command and keyword.
+
+2. Copy this javascript snippet and paste in the file previously created.
+
+```js
+export default {
+    name: "NEW_LANGUAGE",
+    commonCmds: [
+      "command2",
+      "command4"
+    ],
+    cmds: [
+      "command1",
+      "command2",
+      "command3",
+      "command4"
+    ]
+};
+```
+
+3. Replace the value of `name:` key with the new language name
+
+4. Replace the sample strings with all the commands, keywords etc... as an the `cmds:` dictionary
+
+5. Replace the sample strings with all the common commands, keywords etc... as an the `commonCmds:` dictionary
+
+6. Adapt the code in the right section, to do so find the "Add other languages section" comments in the following files:
+
 - src/app.js
+- src/cmnds.js
+- src/main.js

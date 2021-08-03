@@ -3,6 +3,20 @@
 Unofficial fork of the [Command Line Heroes](https://github.com/CommandLineHeroes/clh-bash) game repository.  
 This game will be used during Sorint.lab Download Festival 2021 for the "Fun" part.
 
+It's a speed game where you make point every time you type a commands or keywords of the following accepted language:
+- bash / shell
+- python
+- javascript
+- html
+- SQL
+
+These are the WIP languages
+- ansible module
+- microsoft / powershell
+- cisco
+
+NOTE: To add additional languages see the end of this readme
+
 ## Get started
 
 The Game is been containerized for a simply deploy in a docker or kubernetes environment.
@@ -55,3 +69,7 @@ The all-in-one manifest will create:
 - service
 - loadbalancer
 - route
+
+## Add additional languages
+
+Is it possibile to add all additional languages you want, to do this just follow the languages [readme](clh-game/assets/cmds/README.md)

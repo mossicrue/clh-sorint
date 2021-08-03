@@ -15,6 +15,6 @@ spec:
         app: clh-game
     spec:
       containers:
-      - image: docker.io/mossicrue/clh-game:current
+      - image: docker.io/mossicrue/clh-game:stable
         name: clh-game
         resources:
