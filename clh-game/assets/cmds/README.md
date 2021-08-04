@@ -24,13 +24,21 @@ From the origianl README:
 
 ## SQL
 
-See files from-sql-base.txt and from-postgres-doc.txt
+The different source for SQL commands and keywords I used are:
+- w3 and w3school pages
+- PostgreSQL documentation appendix by looking for standard keyworkd.
 
-## Ansible
+See files `from-sql-base.txt` and `from-postgres-doc.txt` for all the command I added
 
 ## Powershell
 
-## Microsoft / Powershell
+The different source for SQL commands and keywords I used are:
+- w3 and w3school pages
+- PostgreSQL documentation appendix by looking for standard keyworkd.
+
+See files from-sql-base.txt and from-postgres-doc.txt for all the command I added
+
+## Ansible
 
 ## Cisco
 
