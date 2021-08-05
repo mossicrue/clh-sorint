@@ -9,7 +9,6 @@ import sqlCmds from "../assets/cmds/sql.js";
 import psCmds from "../assets/cmds/powershell.js";
 import ciscoCmds from "../assets/cmds/cisco.js";
 import ansibleCmds from "../assets/cmds/ansible.js";
-import ansible from "../assets/cmds/ansible.js";
 
 const allCmds = _.union(
     bash().cmds,
@@ -20,7 +19,7 @@ const allCmds = _.union(
     sql().cmds,
     ps().cmds,
     cisco().cmds,
-    ansibleCmds().cmds
+    ansible().cmds
 );
 
 export const cmdsByLang = {
@@ -82,9 +81,9 @@ export function find(cmd) {
     const result = {
         lang: []
     };
+    //if (cmdsByLang[lang].cmds.includes(cmd.trim())) {
     for (let lang in cmdsByLang) {
-        //if (cmdsByLang[lang].cmds.includes(cmd.trim())) {
-        if (cmdsByLang[lang].cmds.includes(cmd.trim().toLocaleLowerCase())) {
+        if (cmdsByLang[lang].cmds.includes(cmd.trim().toLowerCase())) {
             result.cmd = cmd;
             result.lang.push(lang);
         }

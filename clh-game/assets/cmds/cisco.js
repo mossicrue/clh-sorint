@@ -1,5 +1,5 @@
 export default {
-  name: "CISCO",
+  name: "Cisco",
   commonCmds: [
     "address-table",
     "all",

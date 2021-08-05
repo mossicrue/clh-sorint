@@ -1,5 +1,5 @@
 export default {
-  name: "POWERSHELL",
+  name: "PowerShell",
   commonCmds: [
     "add-adcomputerserviceaccount",
     "add-addomaincontrollerpasswordreplicationpolicy",

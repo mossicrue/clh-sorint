@@ -1,5 +1,5 @@
 export default {
-    name: "ANSIBLE",
+    name: "Ansible",
     commonCmds: [
       "add_host",
       "advanced_host_list",
