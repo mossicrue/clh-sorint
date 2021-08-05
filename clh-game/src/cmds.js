@@ -5,7 +5,11 @@ import jsCmds from "../assets/cmds/js.js";
 import pyCmds from "../assets/cmds/python.js";
 import htmlCmds from "../assets/cmds/html.js";
 // Add other languages section
-import sqlCmds from "../assets/cmds/sql.js"
+import sqlCmds from "../assets/cmds/sql.js";
+import psCmds from "../assets/cmds/powershell.js";
+import ciscoCmds from "../assets/cmds/cisco.js";
+import ansibleCmds from "../assets/cmds/ansible.js";
+import ansible from "../assets/cmds/ansible.js";
 
 const allCmds = _.union(
     bash().cmds,
@@ -13,7 +17,10 @@ const allCmds = _.union(
     py().cmds,
     html().cmds,
     // Add other languages section
-    sql().cmds
+    sql().cmds,
+    ps().cmds,
+    cisco().cmds,
+    ansibleCmds().cmds
 );
 
 export const cmdsByLang = {
@@ -22,7 +29,10 @@ export const cmdsByLang = {
     py: py(),
     html: html(),
     // Add other languages section
-    sql: sql()
+    sql: sql(),
+    ps: ps(),
+    cisco: cisco(),
+    ansible: ansible()
 };
 
 export function all() {
@@ -50,6 +60,18 @@ export function sql() {
     return sqlCmds;
 }
 
+export function ps() {
+    return psCmds;
+}
+
+export function cisco() {
+    return ciscoCmds;
+}
+
+export function ansible() {
+    return ansibleCmds;
+}
+
 export function longest() {
     return allCmds.reduce(function(a, b) {
         return a.length > b.length ? a : b;
@@ -61,7 +83,8 @@ export function find(cmd) {
         lang: []
     };
     for (let lang in cmdsByLang) {
-        if (cmdsByLang[lang].cmds.includes(cmd.trim())) {
+        //if (cmdsByLang[lang].cmds.includes(cmd.trim())) {
+        if (cmdsByLang[lang].cmds.includes(cmd.trim().toLocaleLowerCase())) {
             result.cmd = cmd;
             result.lang.push(lang);
         }

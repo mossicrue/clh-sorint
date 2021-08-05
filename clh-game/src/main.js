@@ -167,11 +167,13 @@ const states = {
                 1000} seconds to enter ANY
 of the following:
 
-- bash shell commands & linux built-ins
+- Bash shell commands & Linux built-ins
 - JavaScript keywords, objects, functions
 - Python keywords, objects, functions
+- HTML5 tags and Ansible modules
 - SQL keywords, object, functions
-- HTML5 tags and Ansible module
+- Powershell keywords, object, functions
+- Cisco comamnd & sub-command keywords
 
 Press Enter to continue.`;
 
@@ -383,6 +385,9 @@ Press Enter to continue.`;
             app.cmd += `HTML5       ${app.count.html}\n`;
             // Add other languages section
             app.cmd += `SQL         ${app.count.sql}\n`;
+            app.cmd += `POWERSHELL  ${app.count.ps}\n`;
+            app.cmd += `CISCO       ${app.count.cisco}\n`;
+            app.cmd += `ANSIBLE     ${app.count.ansible}\n`;
 
             app.cmd += `\nPress Enter to continue.`;
 
@@ -765,7 +770,10 @@ function deriveTribe() {
         { tribe: "JavaScript", count: app.count.js },
         { tribe: "HTML", count: app.count.html },
         // Add other languages section
-        { tribe: "SQL", count: app.count.sql }
+        { tribe: "SQL", count: app.count.sql },
+        { tribe: "Powershell", count: app.count.ps },
+        { tribe: "Cisco", count: app.count.cisco },
+        { tribe: "Ansible", count: app.count.ansible }
     ];
 
     const tribesSorted = _.reverse(_.sortBy(cmdCounts, "count"));

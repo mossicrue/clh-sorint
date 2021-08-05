@@ -24,23 +24,31 @@ From the origianl README:
 
 ## SQL
 
-The different source for SQL commands and keywords I used are:
-- w3 and w3school pages
-- PostgreSQL documentation appendix by looking for standard keyworkd.
+The sources for SQL commands and keywords used are:
+- w3 and w3school pages like [this](https://www.w3schools.com/sql/sql_ref_keywords.asp)
+- PostgreSQL documentation [appendix](https://www.postgresql.org/docs/current/sql-keywords-appendix.html) by looking for standard keyworkd.
 
-See files `from-sql-base.txt` and `from-postgres-doc.txt` for all the command I added
+See files `from-sql-base.txt` and `from-postgres-doc.txt` for all the available command.
 
 ## Powershell
 
-The different source for SQL commands and keywords I used are:
-- w3 and w3school pages
-- PostgreSQL documentation appendix by looking for standard keyworkd.
+The source for Powershell commands and keywords used are from [ss64.com](https://ss64.com/ps/)
 
-See files from-sql-base.txt and from-postgres-doc.txt for all the command I added
+See files `from-ss64-ps-ad.txt` and `from-ss64-ps-all.txt` for all the available command.
 
 ## Ansible
 
+The sources for Ansible modules and keywords used are:
+- "Ansible.Builtin" [page](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
+- Ansible "All Modules" [page](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html)
+
+See files `from-ansible-common.txt` and `from-ansible-all.txt` for all the available command.
+
 ## Cisco
+
+The commands and keyword for Cisco were provided from a colleague that works as networking sysadmin
+
+See files `from-ccna-common.txt` and `from-ccna.txt` for all the available command.
 
 ## Add a new language
 
@@ -74,6 +82,6 @@ export default {
 
 6. Adapt the code in the right section, to do so find the "Add other languages section" comments in the following files:
 
-- src/app.js
 - src/cmnds.js
+- src/app.js
 - src/main.js

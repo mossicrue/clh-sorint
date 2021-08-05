@@ -219,6 +219,12 @@ const app = new Vue({
             // Add other languages section
             let sqlAll = filterCmds(cmds.cmdsByLang.sql.cmds);
             let sqlCommon = cmds.cmdsByLang.sql.commonCmds;
+            let psAll = filterCmds(cmds.cmdsByLang.ps.cmds);
+            let psCommon = cmds.cmdsByLang.ps.commonCmds;
+            let ciscoAll = filterCmds(cmds.cmdsByLang.cisco.cmds);
+            let ciscoCommon = cmds.cmdsByLang.cisco.commonCmds;
+            let ansibleAll = filterCmds(cmds.cmdsByLang.ansible.cmds);
+            let ansibleCommon = cmds.cmdsByLang.ansible.commonCmds;
 
             let cn = config.GOLDEN_CMDS_COMMON_PER_LANG;
             let rn = config.GOLDEN_CMDS_RANDOM_PER_LANG;
@@ -239,6 +245,15 @@ const app = new Vue({
                 // Add other languages section
                 sql: _.sampleSize(sqlCommon, cn).concat(
                     _.sampleSize(_.xor(sqlCommon, sqlAll), rn)
+                ),
+                ps: _.sampleSize(psCommon, cn).concat(
+                    _.sampleSize(_.xor(psCommon, psAll), rn)
+                ),
+                cisco: _.sampleSize(ciscoCommon, cn).concat(
+                    _.sampleSize(_.xor(ciscoCommon, ciscoAll), rn)
+                ),
+                ansible: _.sampleSize(ansibleCommon, cn).concat(
+                    _.sampleSize(_.xor(ansibleCommon, ansibleAll), rn)
                 )
             };
 
@@ -247,7 +262,10 @@ const app = new Vue({
                 goldenCommands.js,
                 goldenCommands.py,
                 goldenCommands.html,
-                goldenCommands.sql
+                goldenCommands.sql,
+                goldenCommands.ps,
+                goldenCommands.cisco,
+                goldenCommands.ansible
             );
 
             return goldenCommands;
@@ -298,19 +316,21 @@ const app = new Vue({
             // interleave commands of fifth and sixth langs (sql and microsoft)
             out += _.zip(
                 goldCmds.sql.map(c => ` - ${c}`.padEnd(halfScreen)),
-                goldCmds.sql.map(c => ` - ${c}`.padEnd(halfScreen))
-                // Delete previous line and uncomment next line to add microsoft
-                // goldCmds.mcs.map(c => ` - ${c}`.padEnd(halfScreen))
+                goldCmds.ps.map(c => ` - ${c}`.padEnd(halfScreen))
             )
+
+                .map(cs => cs.join(""))
+                .join("");
 
             // interleave commands of seventh and eighth langs (cisco and ansible modules)
             // Delete this comment to add Cisco and ansible languages in gold
-            /*
             out += _.zip(
                 goldCmds.cisco.map(c => ` - ${c}`.padEnd(halfScreen)),
                 goldCmds.ansible.map(c => ` - ${c}`.padEnd(halfScreen))
             )
-            */
+
+                .map(cs => cs.join(""))
+                .join("");
 
             return out;
         },
