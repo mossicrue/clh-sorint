@@ -4,6 +4,7 @@ metadata:
   labels:
     app: clh-game
   name: clh-game
+  namespace: clh-game
 spec:
   replicas: 1
   selector:
@@ -17,4 +18,7 @@ spec:
       containers:
       - image: docker.io/mossicrue/clh-game:stable
         name: clh-game
-        resources:
+        resources: {}
+        ports:
+        - containerPort: 3000
+          protocol: TCP
