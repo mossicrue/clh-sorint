@@ -229,6 +229,7 @@ const app = new Vue({
             let cn = config.GOLDEN_CMDS_COMMON_PER_LANG;
             let rn = config.GOLDEN_CMDS_RANDOM_PER_LANG;
 
+            // Add other language section
             let goldenCommands = {
                 bash: _.sampleSize(bashCommon, cn).concat(
                     _.sampleSize(_.xor(bashCommon, bashAll), rn)
@@ -242,7 +243,6 @@ const app = new Vue({
                 html: _.sampleSize(htmlCommon, cn).concat(
                     _.sampleSize(_.xor(htmlCommon, htmlAll), rn)
                 ),
-                // Add other languages section
                 sql: _.sampleSize(sqlCommon, cn).concat(
                     _.sampleSize(_.xor(sqlCommon, sqlAll), rn)
                 ),
@@ -313,24 +313,37 @@ const app = new Vue({
                 .join("");
 
             // Add other languages section
+            out += "\n";
+
+            // title of fifth and sixth langs
+            out += cmds.sql().name.padEnd(halfScreen);
+            out += cmds.ps().name + "\n";
+            
             // interleave commands of fifth and sixth langs (sql and microsoft)
             out += _.zip(
                 goldCmds.sql.map(c => ` - ${c}`.padEnd(halfScreen)),
-                goldCmds.ps.map(c => ` - ${c}`.padEnd(halfScreen))
+                goldCmds.ps.map(c => `${` - ${c}`.padEnd(halfScreen)}\n`)
             )
 
                 .map(cs => cs.join(""))
                 .join("");
+
+            out += "\n";
+
+            // title of fifth and sixth langs
+            out += cmds.cisco().name.padEnd(halfScreen);
+            out += cmds.ansible().name + "\n";
 
             // interleave commands of seventh and eighth langs (cisco and ansible modules)
-            // Delete this comment to add Cisco and ansible languages in gold
             out += _.zip(
                 goldCmds.cisco.map(c => ` - ${c}`.padEnd(halfScreen)),
-                goldCmds.ansible.map(c => ` - ${c}`.padEnd(halfScreen))
+                goldCmds.ansible.map(c => `${` - ${c}`.padEnd(halfScreen)}\n`)
             )
 
                 .map(cs => cs.join(""))
                 .join("");
+
+            out += "\n";
 
             return out;
         },

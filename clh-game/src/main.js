@@ -173,7 +173,7 @@ of the following:
 - HTML5 tags and Ansible modules
 - SQL keywords, object, functions
 - Powershell keywords, object, functions
-- Cisco comamnd & sub-command keywords
+- Cisco command & sub-command keywords
 
 Press Enter to continue.`;
 
@@ -376,6 +376,7 @@ Press Enter to continue.`;
             await sleep(500);
 
             // make font appropriate size for when camera is zoomed in
+            // Add other languages section
             consoleCanvas.conf.FONT_SIZE = 4 * 90;
             app.cmd = "THANKS FOR PLAYING!\n\n";
             app.cmd += `SCORE       ${app.score}\n`;
@@ -383,7 +384,6 @@ Press Enter to continue.`;
             app.cmd += `PYTHON      ${app.count.py}\n`;
             app.cmd += `JAVASCRIPT  ${app.count.js}\n`;
             app.cmd += `HTML5       ${app.count.html}\n`;
-            // Add other languages section
             app.cmd += `SQL         ${app.count.sql}\n`;
             app.cmd += `POWERSHELL  ${app.count.ps}\n`;
             app.cmd += `CISCO       ${app.count.cisco}\n`;
@@ -763,13 +763,13 @@ async function init() {
     console.log("init complete");
 }
 
+// Add other languages section
 function deriveTribe() {
     let cmdCounts = [
         { tribe: "bash", count: app.count.bash },
         { tribe: "Python", count: app.count.py },
         { tribe: "JavaScript", count: app.count.js },
         { tribe: "HTML", count: app.count.html },
-        // Add other languages section
         { tribe: "SQL", count: app.count.sql },
         { tribe: "Powershell", count: app.count.ps },
         { tribe: "Cisco", count: app.count.cisco },
