@@ -71,6 +71,10 @@ const app = new Vue({
             bash: 0,
             html: 0,
             py: 0,
+            ansible: 0,
+            sql: 0,
+            ps: 0,
+            cisco: 0,
             recentValidCharacters: 0,
             totalValidCharacters: 0,
             totalValidCommands: 0
@@ -342,8 +346,6 @@ const app = new Vue({
 
                 .map(cs => cs.join(""))
                 .join("");
-
-            out += "\n";
 
             return out;
         },

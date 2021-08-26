@@ -377,6 +377,7 @@ Press Enter to continue.`;
 
             // make font appropriate size for when camera is zoomed in
             // Add other languages section
+
             consoleCanvas.conf.FONT_SIZE = 4 * 90;
             app.cmd = "THANKS FOR PLAYING!\n\n";
             app.cmd += `SCORE       ${app.score}\n`;
