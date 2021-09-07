@@ -17,14 +17,22 @@ These are the WIP languages
 
 NOTE: To add additional languages see the end of this readme
 
-## Super Fast Installation GUIDE
+## Super Fast Installation with Katacoda
 
-- Open the [Openshift 4.5 playground on katacoda](https://www.katacoda.com/courses/openshift/playgrounds/openshift45)
-- Run the following command:
+1. Open the Openshift 4.7 playground [here on katacoda](https://www.katacoda.com/courses/openshift/playgrounds/openshift47)
+
+2. Click on the orange "Start Scenario" button on the bottom of the page
+
+3. Wait for playground to be ready
+
+4. Run the following command
 ```bash
 curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/katacoda-install.sh | bash
 ```
-- Open the link that will be prompted
+
+5. Wait for the game to install and open the link prompted, use Chrome for the best experience
+
+6. Enjoy your 60 minutes session of Command Line Heroes!
 
 ## Get started
 
