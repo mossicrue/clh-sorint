@@ -17,6 +17,15 @@ These are the WIP languages
 
 NOTE: To add additional languages see the end of this readme
 
+## Super Fast Installation GUIDE
+
+- Open the [Openshift 4.5 playground on katacoda](https://www.katacoda.com/courses/openshift/playgrounds/openshift45)
+- Run the following command:
+```bash
+curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/katacoda-install.sh | bash
+```
+- Open the link that will be prompted
+
 ## Get started
 
 The Game is been containerized for a simply deploy in a docker or kubernetes environment.

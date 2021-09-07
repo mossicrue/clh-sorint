@@ -29,15 +29,12 @@ fi
 (${OC_COMMAND} apply -f ${MANIFEST_PATH} &>/dev/null)
 
 # Wait for the Pod to be in running state
-echo -e "\nInstalling the game pod, please wait"
 POD_STATUS="$(${OC_COMMAND} get pod -n clh-game --no-headers=true -o custom-columns=READY:.status.phase 2>/dev/null)"
 while [[ ${POD_STATUS} != "Running" ]]
 do
-  sleep 5s
-  echo -e "    Still Installing..."
+  sleep 10s
   POD_STATUS="$(${OC_COMMAND} get pod -n clh-game --no-headers=true -o custom-columns=READY:.status.phase 2>/dev/null)"
 done
-echo -e "\nGame POD Installed"
 
 # Get all the route in clh-game namespace
 GAME_ROUTE_LINK=$(${OC_COMMAND} get route clh-game -n clh-game --output=custom-columns=HOST:.spec.host --no-headers=true 2>/dev/null)
