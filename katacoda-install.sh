@@ -13,7 +13,7 @@ GAME_ROUTE_LINK=""
 OC_COMMAND=$(which oc 2>/dev/null)
 if [[ $? -ne 0 ]]
 then
-  echo -e "FATAL ERROR: Openshift environment didn't load well!\nRefresh the page and start a new scenario."
+  echo -e "\nFATAL ERROR: Openshift environment didn't load well!\nRefresh the page and start a new scenario."
   exit 10
 fi
 
@@ -21,7 +21,7 @@ fi
 (${OC_COMMAND} whoami &>/dev/null)
 if [[ $? -ne 0 ]]
 then
-  echo -e "FATAL ERROR: Openshift user is not logged.\nTry to refresh the page or wait some minutes."
+  echo -e "\nFATAL ERROR: Openshift user is not logged.\nTry to refresh the page or wait some minutes."
   exit 11
 fi
 
@@ -29,21 +29,21 @@ fi
 (${OC_COMMAND} apply -f ${MANIFEST_PATH} &>/dev/null)
 
 # Wait for the Pod to be in running state
-echo -e "Installing the game pod, please wait"
+echo -e "\nInstalling the game pod, please wait"
 POD_STATUS="$(${OC_COMMAND} get pod -n clh-game --no-headers=true -o custom-columns=READY:.status.phase 2>/dev/null)"
 while [[ ${POD_STATUS} != "Running" ]]
 do
   sleep 5s
-  echo -e "Installing the game pod, please wait"
+  echo -e "    Still Installing..."
   POD_STATUS="$(${OC_COMMAND} get pod -n clh-game --no-headers=true -o custom-columns=READY:.status.phase 2>/dev/null)"
 done
-echo -e "Game POD Installed"
+echo -e "\nGame POD Installed"
 
 # Get all the route in clh-game namespace
 GAME_ROUTE_LINK=$(${OC_COMMAND} get route clh-game -n clh-game --output=custom-columns=HOST:.spec.host --no-headers=true 2>/dev/null)
 if [[ -z "${GAME_ROUTE_LINK}" ]]
 then
-  echo -e "FATAL ERROR: Seems that no route is deployed. Try to relaunch the install script"
+  echo -e "\nFATAL ERROR: Seems that no route is deployed. Try to relaunch the install script"
 fi
 
 cat << EOF
@@ -54,7 +54,7 @@ cat << EOF
 
 SUCCESS! The game is now up and running at the following link:
 
-${GAME_ROUTE_LINK}
+http://${GAME_ROUTE_LINK}
 
 NOTE: Use Chrome for the best experience and keep this page open while playing the game!
 
