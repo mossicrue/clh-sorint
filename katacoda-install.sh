@@ -24,16 +24,17 @@ then
 fi
 
 # Apply the all in one manifest
-(${OC_COMMAND} apply -f ${MANIFEST_PATH})
+(${OC_COMMAND} apply -f ${MANIFEST_PATH} &>/dev/null)
 
 # Get all the route in clh-game namespace
-GAME_ROUTE_LINK=$(${OC_COMMAND} get route clh-game --output=custom-columns=HOST:.spec.host --no-headers=true 2>/dev/null)
+GAME_ROUTE_LINK=$(${OC_COMMAND} get route clh-game -n clh-game --output=custom-columns=HOST:.spec.host --no-headers=true 2>/dev/null)
 if [[ -z "${GAME_ROUTE_LINK}" ]]
 then
   echo -e "FATAL ERROR: Seems that no route is deployed. Try to relaunch the install script"
 fi
 
 cat << EOF
+
 ***********************
 * COMMAND LINE HEROES *
 ***********************
@@ -43,4 +44,5 @@ SUCCESS! The game is now up and running and is available at the following link, 
 ${GAME_ROUTE_LINK}
 
 NOTE: Keep this page open while playing the game
+
 EOF
