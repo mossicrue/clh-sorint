@@ -3,7 +3,7 @@
 # The script can be launched with this command in katacoda
 # curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/katacoda-install.sh | bash
 
-echo -e "Command Line Heroes Katacoda install script.\nThe installation process may take some times, please wait."
+echo -e "Command Line Heroes Killercoda install script.\nThe installation process may take some times, please wait."
 
 # variables
 MANIFEST_PATH="https://raw.githubusercontent.com/mossicrue/clh-sorint/master/kubernetes/k8s-resources.yml"
