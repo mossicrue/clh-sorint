@@ -13,7 +13,7 @@ GAME_ROUTE_LINK=""
 KUBECTL_COMMAND=$(which kubectl 2>/dev/null)
 if [[ $? -ne 0 ]]
 then
-  echo -e "\nFATAL ERROR: Openshift environment didn't load well!\nRefresh the page and start a new scenario."
+  echo -e "\nFATAL ERROR: Kubernetes environment didn't load well!\nRefresh the page and start a new scenario."
   exit 10
 fi
 
