@@ -4,6 +4,20 @@ kind: Namespace
 metadata:
   name: clh-game
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: anyuid-scc-binding
+  namespace: clh-game
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:anyuid
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: clh-game
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,7 +26,7 @@ metadata:
   name: clh-game
   namespace: clh-game
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: clh-game
@@ -21,6 +35,8 @@ spec:
       labels:
         app: clh-game
     spec:
+      securityContext:
+        runAsUser: 0
       containers:
       - image: docker.io/mossicrue/clh-game:stable
         name: clh-game
@@ -54,7 +70,6 @@ metadata:
   name: clh-game
   namespace: clh-game
 spec:
-  # host: test-clh-clh-game.2886795291-80-host19nc.environments.katacoda.com
   port:
     targetPort: clh-game-port
   to:

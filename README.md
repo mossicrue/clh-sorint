@@ -1,6 +1,6 @@
 # Command Line Heroes
 
-Unofficial fork of the [Command Line Heroes](https://github.com/CommandLineHeroes/clh-bash) game repository.  
+Unofficial fork of the [Command Line Heroes](https://github.com/CommandLineHeroes/clh-bash) game repository.
 This game will be used during Sorint.lab Download Festival 2021 for the "Fun" part.
 
 It's a speed game where you make point every time you type a commands or keywords of the following accepted language:
@@ -27,7 +27,7 @@ NOTE: To add additional languages see the end of this readme
 
 4. Run the following command
 ```bash
-curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/katacoda-install.sh | bash
+curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/k8s-install.sh | bash
 ```
 
 5. Wait for the game to install and open the link prompted, use Chrome for the best experience
