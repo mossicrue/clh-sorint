@@ -17,9 +17,9 @@ These are the WIP languages
 
 NOTE: To add additional languages see the end of this readme
 
-## Super Fast Installation with Katacoda
+## Super Fast Installation on Killercoda
 
-1. Open the Openshift 4.7 playground [here on katacoda](https://www.katacoda.com/courses/openshift/playgrounds/openshift47)
+1. Open the Openshift 4.7 playground [here on killercoda](https://killercoda.com/playgrounds/scenario/kubernetes)
 
 2. Click on the orange "Start Scenario" button on the bottom of the page
 

@@ -26,7 +26,7 @@ metadata:
   name: clh-game
   namespace: clh-game
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: clh-game
@@ -34,6 +34,7 @@ spec:
     metadata:
       labels:
         app: clh-game
+        test: "true"
     spec:
       securityContext:
         runAsUser: 0
