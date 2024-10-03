@@ -27,7 +27,7 @@ NOTE: To add additional languages see the end of this readme
 
 4. Run the following command
 ```bash
-curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/k8s-install.sh | bash
+curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/refs/heads/master/k8s-install.sh | bash
 ```
 
 5. Wait for the game to install and open the link prompted, use Chrome for the best experience

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The script can be launched with this command in katacoda
-# curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/master/katacoda-install.sh | bash
+# curl -s https://raw.githubusercontent.com/mossicrue/clh-sorint/refs/heads/master/k8s-install.sh | bash
 
 echo -e "Command Line Heroes Killercoda install script.\nThe installation process may take some times, please wait."
 
