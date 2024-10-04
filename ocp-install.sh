@@ -6,7 +6,7 @@
 echo -e "Command Line Heroes Katacoda install script.\nThe installation process may take some times, please wait."
 
 # variables
-MANIFEST_PATH="https://raw.githubusercontent.com/mossicrue/clh-sorint/master/kubernetes/ocp-resources.yml"
+MANIFEST_PATH="https://raw.githubusercontent.com/mossicrue/clh-sorint/master/kubernetes/ocp-resources.yaml"
 GAME_ROUTE_LINK=""
 
 # Check oc command presence
