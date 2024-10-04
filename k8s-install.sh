@@ -21,7 +21,7 @@ fi
 (${KUBECTL_COMMAND} auth whoami &>/dev/null)
 if [[ $? -ne 0 ]]
 then
-  echo -e "\nFATAL ERROR: Openshift user is not logged.\nTry to refresh the page or wait some minutes."
+  echo -e "\nFATAL ERROR: Kubernetes user is not logged.\nTry to refresh the page or wait some minutes."
   exit 11
 fi
 
