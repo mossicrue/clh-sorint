@@ -66,7 +66,7 @@ It is possible to run the game locally on Docker or in a orchestrated environmen
 To run the game locally in a container engine like docker
 
 ```bash
-docker pull docker.io/mossicrue/clh-sorint:stable
+docker pull mossicrue/clh-sorint:stable
 docker run --detach --port 3000:3000 --port 3001:3001 --name clh-game mossicrue/clh-sorint:stable
 ```
 
