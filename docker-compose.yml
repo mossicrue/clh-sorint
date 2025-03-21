@@ -1,0 +1,26 @@
+services:
+  clh-game:
+    build:
+      context: ./clh-game
+      dockerfile: ../Dockerfile
+    container_name: clh-game
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    restart: always
+    networks:
+      - clh-network
+
+  clh-server:
+    build:
+      context: ./clh-server
+    container_name: clh-server
+    ports:
+      - "3002:3002"
+    restart: always
+    networks:
+      - clh-network    
+
+networks:
+  clh-network:
+    driver: bridge              

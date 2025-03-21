@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node start.js",
-        "extract": "gunzip -k assets/models/*.gz",
+        "extract": "gunzip -kf assets/models/*.gz",
         "compress": "gzip -fk assets/models/*.{mtl,obj}",
         "prettier": "node ./node_modules/.bin/prettier --write src/*.js assets/cmds/*.js",
         "unzip": "node src/unzip.js"

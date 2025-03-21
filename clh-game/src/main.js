@@ -164,7 +164,7 @@ const states = {
             });
 
             app.cmd = `You have ${config.GAME_DURATION /
-                1000} seconds to enter ANY
+            1000} seconds to enter ANY
 of the following:
 
 - Bash shell commands & Linux built-ins
@@ -381,14 +381,6 @@ Press Enter to continue.`;
             consoleCanvas.conf.FONT_SIZE = 4 * 90;
             app.cmd = "THANKS FOR PLAYING!\n\n";
             app.cmd += `SCORE       ${app.score}\n`;
-            app.cmd += `BASH        ${app.count.bash}\n`;
-            app.cmd += `PYTHON      ${app.count.py}\n`;
-            app.cmd += `JAVASCRIPT  ${app.count.js}\n`;
-            app.cmd += `HTML5       ${app.count.html}\n`;
-            app.cmd += `SQL         ${app.count.sql}\n`;
-            app.cmd += `POWERSHELL  ${app.count.ps}\n`;
-            app.cmd += `CISCO       ${app.count.cisco}\n`;
-            app.cmd += `ANSIBLE     ${app.count.ansible}\n`;
 
             app.cmd += `\nPress Enter to continue.`;
 
@@ -401,12 +393,7 @@ Press Enter to continue.`;
                 if (ev.keyCode === keyCodes.enter) {
                     app.onKeyPress = _.noop;
                     app.cmd = "";
-
-                    if (leaders.isEmpty || app.score > leaders.lowestHiScore) {
-                        app.toState(STATES.highscore);
-                    } else {
-                        app.toState(STATES.leaderboard);
-                    }
+                    app.toState(STATES.highscore);
                 }
             };
         }
@@ -478,8 +465,10 @@ Press Enter to continue.`;
 
                     await sleep(200);
                     app.toState(STATES.leaderboard);
+                    await leaderboard.saveLeaderboard()
                 } else {
                     app.cmd += "\nEnter your name\n";
+
                 }
             };
         }

@@ -105,6 +105,33 @@ async function getParse() {
     return formatLeaders(scores.results);
 }
 
+async function saveLeaderboard() {
+    const leaderboardData = await get();
+    const leaders = leaderboardData.leaders || [];
+
+    // Create JSON data from leaders
+    const jsonData = {
+        leaders: leaders,
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        // Send data via POST request
+        const response = await fetch(`${config.BACKEND_URL}/leaderboard/export`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(jsonData)
+        });
+
+        const result = await response.json();
+        console.log("Leaderboard data exported successfully:", result);
+    } catch (error) {
+        console.error("Error exporting leaderboard data:", error);
+    }
+}
+
 function formatLeaders(leaders) {
     leaders = _.reverse(_.sortBy(leaders, "score"));
     const hiScores = _(leaders)
@@ -129,5 +156,6 @@ function formatLeaders(leaders) {
 export default {
     init,
     record,
-    get
+    get,
+    saveLeaderboard
 };
