@@ -19,8 +19,10 @@ services:
       - "3002:3002"
     restart: always
     networks:
-      - clh-network    
+      - clh-network
+    volumes:
+      - /app/leaderboard:/root/leaderboard
 
 networks:
   clh-network:
-    driver: bridge              
+    driver: bridge

@@ -2,7 +2,7 @@ export default {
     PARSE_URL: "http://localhost:1337/parse",
     PARSE_APPID: "CLH",
     LEADERBOARD_NAMESPACE_DEFAULT: "leaderboard",
-    BACKEND_URL: "http://localhost:3002",
+    BACKEND_URL: "http://clh-server:3002",
 
     GOLDEN_CMDS_COMMON_PER_LANG: 2, // Number of very common commands to include
     GOLDEN_CMDS_RANDOM_PER_LANG: 1, // Number of totally random commands to include per language

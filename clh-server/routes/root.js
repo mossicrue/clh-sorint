@@ -6,10 +6,10 @@ const path = require('path');
 module.exports = async function (fastify, opts) {
   fastify.post('/leaderboard/export', async function (request, reply) {
     const { body } = request
-    
+
     try {
       const leaders = body.leaders || [];
-      
+
       if (leaders.length === 0) {
         return reply.code(400).send({ error: 'No leaderboard data provided' });
       }
@@ -24,9 +24,10 @@ module.exports = async function (fastify, opts) {
         }).join(',');
       });
 
-      const outputDir = path.join(__dirname, '../');
+      // const outputDir = path.join(__dirname, '../');
+      const outputDir = path.join(__dirname, '../leaderboard/');
       await fs.mkdir(outputDir, { recursive: true });
-      
+
       const filename = 'leaderboard.csv';
       const filepath = path.join(outputDir, filename);
 
@@ -41,14 +42,14 @@ module.exports = async function (fastify, opts) {
         const existingContent = await fs.readFile(filepath, 'utf8');
         const existingLines = existingContent.split('\n');
         const existingHeaders = existingLines[0];
-        
+
         if (existingHeaders !== headers) {
-          return reply.code(400).send({ 
-            error: 'Schema mismatch', 
-            message: 'The schema of the new data does not match the existing file' 
+          return reply.code(400).send({
+            error: 'Schema mismatch',
+            message: 'The schema of the new data does not match the existing file'
           });
         }
-        
+
         const existingData = existingLines.slice(1)
           .filter(line => line.trim().length > 0)
           .map(line => {
@@ -59,20 +60,20 @@ module.exports = async function (fastify, opts) {
             });
             return record;
           });
-        
+
         const uniqueLeaders = leaders.filter(newLeader => {
-          return !existingData.some(existingLeader => 
+          return !existingData.some(existingLeader =>
             existingLeader.name === newLeader.name && existingLeader.score === newLeader.score
           );
         });
-        
+
         if (uniqueLeaders.length === 0) {
           return {
             success: true,
             message: 'No new unique records to add'
           };
         }
-        
+
         const newRows = uniqueLeaders.map(leader => {
           return Object.values(leader).map(value => {
             if (typeof value === 'string' && value.includes(',')) {
@@ -81,10 +82,10 @@ module.exports = async function (fastify, opts) {
             return value;
           }).join(',');
         });
-        
+
         csvContent = '\n' + newRows.join('\n');
         await fs.appendFile(filepath, csvContent);
-        
+
         return {
           success: true,
           message: `${uniqueLeaders.length} new records appended successfully`,
@@ -93,17 +94,17 @@ module.exports = async function (fastify, opts) {
       } else {
         csvContent = [headers, ...rows].join('\n');
         await fs.writeFile(filepath, csvContent);
-        
+
         return {
           success: true,
           message: 'Leaderboard data file created successfully',
           added: leaders.length
         };
       }
-      
+
     } catch (error) {
       fastify.log.error(error);
-      return reply.code(500).send({ 
+      return reply.code(500).send({
         error: 'Failed to save leaderboard data',
         message: error.message
       });
