@@ -9,11 +9,40 @@ It's a speed game where you make point every time you type a commands or keyword
 - javascript
 - html
 - SQL
-
-These are the WIP languages
 - ansible module
 - microsoft / powershell
 - cisco
+
+## Installing
+
+1. Install docker and docker compose on the desktop / laptop you want to play
+
+2. pull this repository to /root directory
+
+  ```bash
+  cd /root/
+  git clone https://github.com/mossicrue/clh-sorint.git
+  ```
+
+3. create the /root/leaderboard directory
+
+  ```bash
+  mkdir /root/leaderboard
+  ```
+
+4. go to the repository directory
+
+  ```bash
+  cd /root/clh-sorint
+  ```
+
+5. start the game
+
+  ```
+  docker compose up -d
+  ```
+
+# OLD INSTALLATION MODE
 
 NOTE: To add additional languages see the end of this readme
 
