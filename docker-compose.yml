@@ -21,7 +21,7 @@ services:
     networks:
       - clh-network
     volumes:
-      - /app/leaderboard:/root/leaderboard
+      - /root/leaderboard:/app/leaderboard
 
 networks:
   clh-network:
