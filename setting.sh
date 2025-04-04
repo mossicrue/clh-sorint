@@ -2,7 +2,7 @@
 
 # Script per avviare Chromium in modalità a schermo intero nascondendo le barre di Ubuntu
 # URL del sito da avviare
-URL="https://example.com"  # Sostituisci con l'URL del tuo sito
+URL="http://localhost:3000"  # Sostituisci con l'URL del tuo sito
 
 # Nascondi il dock e il pannello superiore di GNOME
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
