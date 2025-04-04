@@ -44,14 +44,4 @@ xset s noblank
 unclutter -idle 0.1 &
 
 # Avvia Chromium in modalità kiosk VERA (non solo fullscreen) senza barre
-chromium-browser --kiosk --app=$URL --no-first-run --disable-pinch --overscroll-history-navigation=0 --disable-infobars --disable-translate --no-default-browser-check --disable-sync
-
-# Attendi che la finestra si apra
-sleep 2
-
-# Usa wmctrl per massimizzare ulteriormente e rimuovere decorazioni della finestra
-wmctrl -r :ACTIVE: -b add,fullscreen
-
-# Passa alla modalità F11 dopo un secondo per assicurare che siano nascoste tutte le barre
-sleep 1
-xdotool key F11
+chromium --start-fullscreen $URL
